@@ -1,0 +1,8 @@
+.calva
+.clj-kondo/.cache
+.lsp
+.nrepl-port
+target
+
+pom.xml
+pom.xml.asc
