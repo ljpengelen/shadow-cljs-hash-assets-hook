@@ -33,7 +33,9 @@
       (prn (str "Invalid configuration \"" configuration "\"!")))
     valid?))
 
-(defn hash-assets! [configuration]
+(defn hash-assets!
+  {:shadow.build/stage :flush}
+  [build-state configuration]
   (when (valid-configuration? configuration)
     (let [{:keys [source-root target-root index files]} configuration
           hashed-files (hash-files source-root files)
@@ -46,4 +48,5 @@
               :let [original-path (str source-root "/" original)]
               :let [hashed-path (str target-root "/" hashed)]]
         (io/make-parents hashed-path)
-        (io/copy (io/file original-path) (io/file hashed-path))))))
+        (io/copy (io/file original-path) (io/file hashed-path)))))
+  build-state)
