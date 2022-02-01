@@ -22,7 +22,7 @@
 (defn- file-exists? [path]
   (let [exists? (.isFile (io/file path))]
     (when-not exists?
-      (prn (str "File \"" path "\" not found!")))
+      (println (str "File \"" path "\" not found!")))
     exists?))
 
 (defn- valid-configuration? [{:keys [source-root index files] :as configuration}]
@@ -30,7 +30,7 @@
         paths (map (fn [file] (str source-root "/" file)) files)
         valid? (every? file-exists? paths)]
     (when-not valid?
-      (prn (str "Invalid configuration \"" configuration "\"!")))
+      (println (str "Invalid configuration \"" configuration "\"!")))
     valid?))
 
 (defn hash-assets!
