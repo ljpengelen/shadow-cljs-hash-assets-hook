@@ -36,7 +36,9 @@
 (defn hash-assets!
   {:shadow.build/stage :flush}
   [build-state configuration]
-  (when (valid-configuration? configuration)
+  (when (and (valid-configuration? configuration)
+             (or (not (:release-mode-only? configuration))
+                 (= :release (:shadow.build/mode build-state))))
     (let [{:keys [source-root target-root index files]} configuration
           hashed-files (hash-files source-root files)
           index-content (slurp (str source-root "/" index))

@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-01-21
+### Changed
+- Introduce `:release-mode-only?` configuration option to prevent hashing when not in release mode.
+
 ## [1.0.2] - 2022-02-02
 ### Changed
 - Show human-readable error messages.
@@ -15,7 +19,8 @@ All notable changes to this project will be documented in this file. This change
 ### Added
 - Initial version of the build hook.
 
-[Unreleased]: https://github.com/ljpengelen/shadow-cljs-hash-assets-hook/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/ljpengelen/shadow-cljs-hash-assets-hook/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/ljpengelen/shadow-cljs-hash-assets-hook/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/ljpengelen/shadow-cljs-hash-assets-hook/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/ljpengelen/shadow-cljs-hash-assets-hook/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ljpengelen/shadow-cljs-hash-assets-hook/releases/tag/v1.0.0

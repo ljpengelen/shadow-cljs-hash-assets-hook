@@ -23,7 +23,8 @@ Second, configure the build hook in your `shadow-cljs.edn` as follows:
                 :build-hooks [(shadow-cljs-hash-assets-hook/hash-assets! {:source-root "public"
                                                                           :target-root "dist"
                                                                           :index "index.html"
-                                                                          :files ["css/site.css" "js/app.js"]})]
+                                                                          :files ["css/site.css" "js/app.js"]
+                                                                          :release-mode-only? true})]
                 ...}}}
 ```
 
@@ -33,6 +34,8 @@ Then, build your app for production:
 
 For the given configuration, this will calculate the md5 hashes of `public/css/site.css` and `public/js/app.js`, and place copies of these files with the corresponding hashes in their filename into `dist/css/site-<hash>.css` and `dist/js/app-<hash>.js`.
 Additionally, it will copy `public/index.html` into `dist/index.html`, with all references to the original files replaced by their renamed counterparts.
+Because the configuration option `:release-mode-only?` is set to `true`, the above only happens when creating release builds.
+Set its value to `false` if you always want to hash assets.
 
 ## License
 
